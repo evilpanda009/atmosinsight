@@ -1,0 +1,4 @@
+FROM opensearchproject/opensearch-dashboards:latest
+RUN /usr/share/bin/opensearch-dashboards-plugin  remove securityAnalyticsDashboards
+RUN /usr/share/bin/opensearch-dashboards-plugin  remove observabilityDashboards
+RUN /usr/share/bin/opensearch-dashboards-plugin  remove customImportMapDashboards

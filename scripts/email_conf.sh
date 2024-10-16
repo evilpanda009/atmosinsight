@@ -12,11 +12,19 @@ prompt_for_input() {
     echo "$input"
 }
 
-# Prompting for variables
-SENDER_NAME=$(prompt_for_input "Enter sender name")
-USERNAME=$(prompt_for_input "Enter email username")
-PASSWORD=$(prompt_for_input "Enter email password")
-SECURE_SETTINGS_PASSWORD=$(prompt_for_input "Enter secure settings password")
+# Check for command-line arguments and assign them to variables
+if [ $# -ge 4 ]; then
+    SENDER_NAME="$1"
+    USERNAME="$2"
+    PASSWORD="$3"
+    SECURE_SETTINGS_PASSWORD="$4"
+else
+    # Prompting for variables if not provided via command line
+    SENDER_NAME=$(prompt_for_input "Enter sender name")
+    USERNAME=$(prompt_for_input "Enter email username")
+    PASSWORD=$(prompt_for_input "Enter email password")
+    SECURE_SETTINGS_PASSWORD=$(prompt_for_input "Enter secure settings password")
+fi
 
 
 # Function to add credentials to the keystore

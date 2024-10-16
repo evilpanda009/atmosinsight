@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Run Linux settings script
-chmod +x ./Linux_settings.sh
-bash ./Linux_settings.sh
+chmod +x ./scripts/Linux_settings.sh
+bash ./scripts/Linux_settings.sh
 
 # Run the certificate generation script
-chmod +x ./generate_certs.sh
-bash ./generate_certs.sh
+chmod +x ./scripts/generate_certs.sh
+bash ./scripts/generate_certs.sh
 
 # Start the Docker containers
 docker compose up -d

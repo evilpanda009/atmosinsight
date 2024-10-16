@@ -62,7 +62,6 @@ services:
     volumes:
       - ./config/logstash/pipeline:/usr/share/logstash/pipeline
       - ./config/logstash/config:/usr/share/logstash/config
-      - ./certs/ca:/usr/share/logstash/certs
     environment:
       - LOGSTASH_JAVA_OPTS="-Xmx1g -Xms1g"
 

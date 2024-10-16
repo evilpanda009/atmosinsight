@@ -38,7 +38,7 @@ services:
       context: Build
       dockerfile: Dockerfile-dashboard
     environment:
-      OPENSEARCH_HOSTS: '["https://os01:9200"]' # must be a string with no spaces when specified as an environment variable
+      OPENSEARCH_HOSTS: '["https://os01:9200"]'
       DISABLE_INSTALL_DEMO_CONFIG: "true"
     logging:
       driver: "json-file"
@@ -51,5 +51,33 @@ services:
     ports:
       - 5601:5601
 
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.15.2
+    container_name: logstash
+    ports:
+      - "5044:5044"
+      - "9600:9600"
+    volumes:
+      - ./config/logstash/pipeline:/usr/share/logstash/pipeline
+      - ./config/logstash/config:/usr/share/logstash/config
+    environment:
+      - LOGSTASH_JAVA_OPTS="-Xmx1g -Xms1g"
+    command: >
+      bash -c "
+      bin/logstash-plugin install logstash-input-beats && 
+      bin/logstash-plugin install logstash-output-opensearch && 
+      bin/logstash --config.reload.automatic
+      "
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.15.2
+    container_name: filebeat
+    volumes:
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/log:/audit-logs
+    # environment:
+    #   - ELASTICSEARCH_HOST=logstash
+    command: >
+      filebeat -e -strict.perms=false
 volumes:
   os-data1:

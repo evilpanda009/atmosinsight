@@ -1,0 +1,8 @@
+FROM docker.elastic.co/logstash/logstash:8.15.2
+
+# Install Logstash plugins
+RUN bin/logstash-plugin install logstash-input-beats
+RUN bin/logstash-plugin install logstash-output-opensearch
+
+# Set the command to run Logstash with automatic config reload
+CMD ["bin/logstash", "--config.reload.automatic"]

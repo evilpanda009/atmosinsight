@@ -52,7 +52,9 @@ services:
       - 5601:5601
 
   logstash:
-    image: docker.elastic.co/logstash/logstash:8.15.2
+    build:
+      context: Build
+      dockerfile: Dockerfile-logstash
     container_name: logstash
     ports:
       - "5044:5044"
@@ -60,14 +62,9 @@ services:
     volumes:
       - ./config/logstash/pipeline:/usr/share/logstash/pipeline
       - ./config/logstash/config:/usr/share/logstash/config
+      - ./certs/ca:/usr/share/logstash/certs
     environment:
       - LOGSTASH_JAVA_OPTS="-Xmx1g -Xms1g"
-    command: >
-      bash -c "
-      bin/logstash-plugin install logstash-input-beats && 
-      bin/logstash-plugin install logstash-output-opensearch && 
-      bin/logstash --config.reload.automatic
-      "
 
   filebeat:
     image: docker.elastic.co/beats/filebeat:8.15.2

@@ -1,8 +1,8 @@
 server.name: os_dashboards
 server.host: "0.0.0.0"
 
-opensearch.username: "admin"
-opensearch.password: "admin"
+opensearch.username: "${OPENSEARCH_USER}"
+opensearch.password: "${OPENSEARCH_PASSWORD}"
 
 # Encrypt traffic between the browser and OpenSearch-Dashboards
 server.ssl.enabled: true

@@ -30,7 +30,7 @@ services:
         max-file: "1"
     ports:
       - 9200:9200
-      - 9600:9600 # required for Performance Analyzer
+      - 9600:9600
 
   opensearch-dashboards:
     restart: always
@@ -56,7 +56,7 @@ services:
     container_name: logstash
     ports:
       - "5044:5044"
-      - "9600:9600"
+      - "9601:9600"
     volumes:
       - ./config/logstash/pipeline:/usr/share/logstash/pipeline
       - ./config/logstash/config:/usr/share/logstash/config
@@ -73,10 +73,10 @@ services:
     image: docker.elastic.co/beats/filebeat:8.15.2
     container_name: filebeat
     volumes:
-      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./config/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
       - /var/log:/audit-logs
-    # environment:
-    #   - ELASTICSEARCH_HOST=logstash
+    environment:
+       - ELASTICSEARCH_HOST=logstash
     command: >
       filebeat -e -strict.perms=false
 volumes:

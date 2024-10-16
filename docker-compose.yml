@@ -2,7 +2,9 @@ services:
 
   os01:
     restart: always
-    image: opensearchproject/opensearch:latest
+    build:
+      context: Build
+      dockerfile: Dockerfile-opensearch
     environment:
       OPENSEARCH_JAVA_OPTS: "-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       node.name: os01

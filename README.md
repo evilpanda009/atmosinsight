@@ -1,0 +1,1 @@
+# docker-opensearch_logstash_filebeat

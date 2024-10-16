@@ -1,8 +1,11 @@
 #!/bin/bash
 
 # Run Linux settings script
+chmod +x ./Linux_settings.sh
 bash ./Linux_settings.sh
+
 # Run the certificate generation script
+chmod +x ./generate_certs.sh
 bash ./generate_certs.sh
 
 # Start the Docker containers

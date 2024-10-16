@@ -3,11 +3,6 @@
 Opensearch and Opensearch dashboards along with Logstash, Filebeat and ssl using docker compose.
 ## Directory Structure
 .
-├── Build
-│   └── Dockerfile-dashboard
-├── LICENSE
-├── Linux_settings.sh
-├── README.md
 ├── config
 │   ├── filebeat
 │   │   └── filebeat.yml
@@ -17,8 +12,6 @@ Opensearch and Opensearch dashboards along with Logstash, Filebeat and ssl using
 │   │   └── opensearch.yml
 │   └── opensearch-dashboards
 │       └── opensearch-dashboards.yml
-├── docker-compose.yml
-├── generate_certs.sh
 └── setup.sh
 
 ## Step 1:
@@ -37,4 +30,4 @@ Update the required configuration files as needed.
 
 ## Step 4:
 Dashboard is available at **https://machine-ip:5601**
-Default username and password is ***admin'***
+Default username and password is ***admin***

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Run Linux settings script
+bash ./Linux_settings.sh
 # Run the certificate generation script
 bash ./generate_certs.sh
 

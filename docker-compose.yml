@@ -23,6 +23,7 @@ services:
       - "./config/opensearch/opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data1:/usr/share/opensearch/data"
       - "./certs:/usr/share/opensearch/config/certificates:ro"
+      
     logging:
       driver: "json-file"
       options:
@@ -48,6 +49,7 @@ services:
     volumes:
       - "./certs:/usr/share/opensearch-dashboards/config/certificates:ro"
       - "./config/opensearch-dashboards/opensearch-dashboards.yml:/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml"
+      - "./assets:/usr/share/opensearch-dashboards/assets:ro"
     ports:
       - 5601:5601
 
@@ -70,7 +72,7 @@ services:
     container_name: filebeat
     volumes:
       - ./config/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
-      - /var/log:/audit-logs
+      - ./audit-logs:/audit-logs
     environment:
        - ELASTICSEARCH_HOST=logstash
     command: >

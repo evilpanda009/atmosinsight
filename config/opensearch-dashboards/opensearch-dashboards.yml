@@ -12,3 +12,19 @@ server.ssl.key: "/usr/share/opensearch-dashboards/config/certificates/os-dashboa
 # Encrypt traffic between OpenSearch-Dashboards and Opensearch
 opensearch.ssl.certificateAuthorities: ["/usr/share/opensearch-dashboards/config/certificates/ca/ca.pem"]
 opensearch.ssl.verificationMode: full
+
+opensearchDashboards.autocompleteTimeout: 1000000
+opensearchDashboards.autocompleteTerminateAfter: 10000000
+
+opensearchDashboards.branding:
+  logo:
+    defaultUrl: "https://localhost:5601/ui/assets/atmos-logo.png"
+    darkModeUrl: "https://localhost:5601/ui/assets/atmos-logo.png"
+  mark:
+    defaultUrl: "https://localhost:5601/ui/assets/atmos-logo.png"
+    darkModeUrl: "https://localhost:5601/ui/assets/atmos-logo.png"
+  loadingLogo:
+    defaultUrl: "https://localhost:5601/ui/assets/atmos-logo.png"
+    darkModeUrl: "https://localhost:5601/ui/assets/atmos-logo.png"
+  faviconUrl: "https://localhost:5601/ui/assets/atmos-logo.png"
+  applicationTitle: "Atmos Insight"

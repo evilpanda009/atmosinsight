@@ -35,8 +35,7 @@ This repository provides a setup for Opensearch, Opensearch Dashboards, Logstash
 ### Step 1: Clone the Repository
 
 > ```bash
-> $ git clone https://github.com/TalhaJuikar/atmosinsight
-.git
+> $ git clone https://github.com/TalhaJuikar/atmosinsight.git
 > $ cd atmosinsight
 > ```
 

@@ -1,4 +1,4 @@
-# Opensearch-DockerCompose
+# Atmos Insight - Docker Compose
 
 This repository provides a setup for Opensearch, Opensearch Dashboards, Logstash, Filebeat, and SSL using Docker Compose.
 
@@ -35,8 +35,9 @@ This repository provides a setup for Opensearch, Opensearch Dashboards, Logstash
 ### Step 1: Clone the Repository
 
 > ```bash
-> $ git clone https://github.com/TalhaJuikar/Opensearch-DockerCompose.git
-> $ cd Opensearch-DockerCompose
+> $ git clone https://github.com/TalhaJuikar/atmosinsight
+.git
+> $ cd atmosinsight
 > ```
 
 ### Step 2: Configure

@@ -13,19 +13,16 @@ plugins.security.ssl.http.pemtrustedcas_filepath: certificates/ca/ca.pem
 plugins.security.ssl.transport.enabled: true
 plugins.security.ssl.transport.pemtrustedcas_filepath: certificates/ca/ca.pem
 plugins.security.ssl.transport.enforce_hostname_verification: false
+plugins.security.ssl.transport.pemkey_filepath: certificates/os01/os01.key
+plugins.security.ssl.transport.pemcert_filepath: certificates/os01/os01.pem
+plugins.security.ssl.http.pemkey_filepath: certificates/os01/os01.key
+plugins.security.ssl.http.pemcert_filepath: certificates/os01/os01.pem
 
 plugins.security.authcz.admin_dn:
   - 'CN=ADMIN,O=EXAMPLE,L=Mumbai,ST=Maharashtra,C=IN'
 plugins.security.nodes_dn:
   - 'CN=os01,O=EXAMPLE,L=Mumbai,ST=Maharashtra,C=IN'
 
-#copied form compose
-plugins.security.ssl.transport.pemkey_filepath: certificates/os01/os01.key
-plugins.security.ssl.transport.pemcert_filepath: certificates/os01/os01.pem
-plugins.security.ssl.http.pemkey_filepath: certificates/os01/os01.key
-plugins.security.ssl.http.pemcert_filepath: certificates/os01/os01.pem
-
-# from internet
 plugins.security.allow_default_init_securityindex: false
 plugins.security.audit.type: internal_opensearch
 plugins.security.enable_snapshot_restore_privilege: true

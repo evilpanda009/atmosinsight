@@ -19,7 +19,7 @@ services:
       - "./config/opensearch/opensearch.yml:/usr/share/opensearch/config/opensearch.yml"
       - "os-data1:/usr/share/opensearch/data"
       - "./certs:/usr/share/opensearch/config/certificates:ro"
-      #- "./config/opensearch-security/internal_users.yml:/usr/share/opensearch/config/opensearch-security/internal_users.yml"
+      - "./config/opensearch-security/internal_users.yml:/usr/share/opensearch/config/opensearch-security/internal_users.yml"
       #- "./config/opensearch-security/action_groups.yml:/usr/share/opensearch/config/opensearch-security/action_groups.yml"
     logging:
       driver: "json-file"

@@ -67,7 +67,7 @@ services:
       - ./config/logstash/config:/usr/share/logstash/config
     environment:
       - LOGSTASH_JAVA_OPTS="-Xmx1g -Xms1g"
-
+    restart: always
   filebeat:
     image: docker.elastic.co/beats/filebeat:8.15.2
     container_name: filebeat
@@ -78,5 +78,6 @@ services:
        - ELASTICSEARCH_HOST=logstash
     command: >
       filebeat -e -strict.perms=false
+    restart: always
 volumes:
   os-data1:

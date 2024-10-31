@@ -33,7 +33,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         context: ./Build
-        dockerfile: Dockerfile-logstash
+        file: Dockerfile-logstash
         push: ${{ github.ref == 'refs/heads/main' }}
         tags: |
           ${{ vars.DOCKER_USERNAME }}/atmos-logstash:latest
@@ -60,7 +60,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         context: ./Build
-        dockerfile: Dockerfile-dashboards
+        file: Dockerfile-dashboards
         push: ${{ github.ref == 'refs/heads/main' }}
         tags: |
           ${{ vars.DOCKER_USERNAME }}/atmos-dashboards:latest

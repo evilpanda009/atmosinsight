@@ -32,8 +32,8 @@ jobs:
     - name: Build and push Docker image for Logstash
       uses: docker/build-push-action@v6
       with:
-        context: ./Build
-        file: Dockerfile-logstash
+        context: .
+        file: Build/Dockerfile-logstash
         push: ${{ github.ref == 'refs/heads/main' }}
         tags: |
           ${{ vars.DOCKER_USERNAME }}/atmos-logstash:latest
@@ -59,8 +59,8 @@ jobs:
     - name: Build and push Docker image for Dashboards
       uses: docker/build-push-action@v6
       with:
-        context: ./Build
-        file: Dockerfile-dashboards
+        context: .
+        file: Build/Dockerfile-dashboard
         push: ${{ github.ref == 'refs/heads/main' }}
         tags: |
           ${{ vars.DOCKER_USERNAME }}/atmos-dashboards:latest

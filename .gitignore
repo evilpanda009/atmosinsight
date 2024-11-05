@@ -1,3 +1,4 @@
-./certs
+certs
 scripts/update_admin_password.sh
 scripts/create_user.sh
+audit-logs

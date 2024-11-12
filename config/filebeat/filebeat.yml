@@ -31,7 +31,7 @@ filebeat.inputs:
 
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
-    - /audit-logs/auditlog-2024-1*.txt
+    - /audit-logs/*.txt
     #- c:\programdata\elasticsearch\logs\*
     
     
